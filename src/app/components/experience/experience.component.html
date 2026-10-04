@@ -1,0 +1,427 @@
+<section id="experience" class="py-12 sm:py-16 relative overflow-hidden scroll-mt-24">
+  <!-- Subtle Ambient Background Accents -->
+  <div class="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+    <div class="absolute top-1/4 left-0 w-80 h-80 bg-primary-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 right-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+    
+    <!-- Section Header with Left/Right Arrows -->
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+      <div class="space-y-1">
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          Experience &amp; <span class="text-gradient">Credentials</span>
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400">
+          Practical engineering contributions, internships, and verified credentials.
+        </p>
+      </div>
+
+      <!-- Header Navigation Controls -->
+      <div class="flex items-center gap-2 self-start sm:self-auto">
+        <button
+          type="button"
+          (click)="scrollPrev()"
+          aria-label="Previous experience card"
+          title="Previous experience"
+          class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-500/50 shadow-sm flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none cursor-pointer"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          (click)="scrollNext()"
+          aria-label="Next experience card"
+          title="Next experience"
+          class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-500/50 shadow-sm flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none cursor-pointer"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Continuous Track with Floating Navigation Arrows -->
+    <div
+      class="relative w-full group/exp py-2"
+      (mouseenter)="pause()"
+      (mouseleave)="resume()"
+    >
+      <!-- Floating Left Arrow -->
+      <button
+        type="button"
+        (click)="scrollPrev()"
+        aria-label="Scroll left"
+        title="Previous card"
+        class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full border border-slate-200/90 dark:border-slate-700/90 bg-white/95 dark:bg-slate-900/95 text-slate-800 dark:text-white shadow-xl backdrop-blur-md flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 opacity-90 sm:opacity-0 sm:group-hover/exp:opacity-100 cursor-pointer"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <!-- Floating Right Arrow -->
+      <button
+        type="button"
+        (click)="scrollNext()"
+        aria-label="Scroll right"
+        title="Next card"
+        class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full border border-slate-200/90 dark:border-slate-700/90 bg-white/95 dark:bg-slate-900/95 text-slate-800 dark:text-white shadow-xl backdrop-blur-md flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 opacity-90 sm:opacity-0 sm:group-hover/exp:opacity-100 cursor-pointer"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      <!-- Edge Gradient Masks -->
+      <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-10 sm:w-16 bg-gradient-to-r from-slate-50 dark:from-[#0b0f19] to-transparent z-20"></div>
+      <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-10 sm:w-16 bg-gradient-to-l from-slate-50 dark:from-[#0b0f19] to-transparent z-20"></div>
+
+      <!-- Scrollable Track with Hidden Scrollbar -->
+      <div
+        #scrollTrack
+        class="flex gap-5 overflow-x-auto scrollbar-none py-3 px-4"
+      >
+        
+        <!-- Track 1: Original Set -->
+        <!-- 1. INTERNSHIP CARDS -->
+        @for (item of internships(); track 'orig-exp-' + item.id) {
+          <div
+            class="flex-shrink-0 w-[300px] sm:w-[325px] rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:-translate-y-1.5 hover:shadow-md transition-all duration-300 flex flex-col justify-between overflow-hidden group"
+          >
+            <!-- Card Top: Logo Container & Status Badge -->
+            <div
+              class="h-36 sm:h-40 bg-gradient-to-b from-slate-50 to-indigo-50/40 dark:from-slate-850 dark:to-slate-900 p-4 flex items-center justify-center relative overflow-hidden border-b border-slate-100 dark:border-slate-800"
+              [class.cursor-pointer]="item.certificateUrl"
+              (click)="item.certificateUrl && openCertificatePreview(item.certificateUrl, item.certificateTitle || item.company, item.company)"
+              [title]="item.certificateUrl ? 'Click to view certificate' : item.company"
+            >
+              <!-- Status Badge (Top Right) -->
+              <div class="absolute top-2.5 right-2.5 z-10">
+                @if (item.status === 'Currently Ongoing') {
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/15 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300 backdrop-blur-md shadow-2xs">
+                    <span class="relative flex h-1.5 w-1.5">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                    </span>
+                    Currently Ongoing
+                  </span>
+                } @else {
+                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-white/90 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 backdrop-blur-sm shadow-2xs">
+                    <svg class="w-2.5 h-2.5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Completed
+                  </span>
+                }
+              </div>
+
+              <!-- Company Logo Box -->
+              <div
+                class="w-36 h-20 rounded-lg shadow-xs flex items-center justify-center p-2.5 transition-transform duration-300 group-hover:scale-105 overflow-hidden"
+                [class.bg-[#1c222c]]="item.id === 'techwing'"
+                [class.border]="true"
+                [class.border-slate-700/60]="item.id === 'techwing'"
+                [class.bg-white]="item.id !== 'techwing'"
+                [class.border-slate-200/80]="item.id !== 'techwing'"
+              >
+                @if (item.logoUrl) {
+                  <img
+                    [src]="item.logoUrl"
+                    [alt]="item.company"
+                    class="max-w-full max-h-full object-contain pointer-events-none"
+                  />
+                } @else {
+                  <span class="font-bold text-slate-800 text-xs text-center">{{ item.company }}</span>
+                }
+              </div>
+
+              @if (item.certificateUrl) {
+                <!-- Subtle preview hint on hover -->
+                <div class="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center pointer-events-none">
+                  <span class="px-2.5 py-1 rounded-md bg-white/95 dark:bg-slate-900/95 text-[10px] font-bold text-slate-800 dark:text-white shadow-xs flex items-center gap-1 backdrop-blur-xs">
+                    <span>View Certificate</span>
+                    <svg class="w-3 h-3 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </span>
+                </div>
+              }
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-4 sm:p-5 flex flex-col flex-grow justify-between space-y-2.5">
+              <div class="space-y-1">
+                <span class="text-[11px] font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider block truncate">
+                  {{ item.company }}
+                </span>
+                <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base leading-snug line-clamp-1">
+                  {{ item.role }}
+                </h3>
+              </div>
+
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-3 min-h-[3.25rem]">
+                {{ item.summary }}
+              </p>
+            </div>
+
+          </div>
+        }
+
+        <!-- 2. CERTIFICATION CARDS -->
+        @for (cert of certifications(); track 'orig-cert-' + cert.id) {
+          <div
+            class="flex-shrink-0 w-[300px] sm:w-[325px] rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:-translate-y-1.5 hover:shadow-md transition-all duration-300 flex flex-col justify-between overflow-hidden group"
+          >
+            <!-- Certificate Document Preview Thumbnail -->
+            <div
+              (click)="openModal(cert)"
+              class="h-36 sm:h-40 bg-slate-100 dark:bg-slate-950 p-2.5 flex items-center justify-center relative overflow-hidden border-b border-slate-100 dark:border-slate-800 cursor-pointer"
+              title="Click to zoom certificate"
+            >
+              <div class="relative w-full h-full rounded-lg overflow-hidden shadow-xs border border-slate-200 dark:border-slate-800 bg-white flex items-center justify-center">
+                <img
+                  [src]="cert.previewUrl"
+                  [alt]="cert.title + ' Certificate Preview'"
+                  class="w-full h-full object-contain bg-white transition-transform duration-300 group-hover:scale-105 pointer-events-none"
+                  loading="lazy"
+                />
+                <!-- Instant Zoom Hover Overlay -->
+                <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center pointer-events-none">
+                  <span class="px-2.5 py-1 rounded-md bg-white/95 dark:bg-slate-900/95 text-[10px] font-bold text-slate-800 dark:text-white shadow-xs flex items-center gap-1 backdrop-blur-xs">
+                    <svg class="w-3.5 h-3.5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                    </svg>
+                    <span>Click to Zoom</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-4 sm:p-5 flex flex-col flex-grow justify-between space-y-2.5">
+              <div class="space-y-1">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-[11px] font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider truncate">
+                    {{ cert.issuer }}
+                  </span>
+                  <span class="text-[10px] font-mono text-slate-400 dark:text-slate-500 whitespace-nowrap">
+                    {{ cert.issueDate }}
+                  </span>
+                </div>
+
+                <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base leading-snug line-clamp-1" [title]="cert.title">
+                  {{ cert.title }}
+                </h3>
+              </div>
+
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-3 min-h-[3.25rem]">
+                {{ cert.description }}
+              </p>
+            </div>
+
+          </div>
+        }
+
+        <!-- Track 2: Duplicate Set for Seamless Infinite Loop -->
+        @for (item of internships(); track 'dup-exp-' + item.id) {
+          <div
+            class="flex-shrink-0 w-[300px] sm:w-[325px] rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:-translate-y-1.5 hover:shadow-md transition-all duration-300 flex flex-col justify-between overflow-hidden group"
+          >
+            <!-- Card Top: Logo Container & Status Badge -->
+            <div
+              class="h-36 sm:h-40 bg-gradient-to-b from-slate-50 to-indigo-50/40 dark:from-slate-850 dark:to-slate-900 p-4 flex items-center justify-center relative overflow-hidden border-b border-slate-100 dark:border-slate-800"
+              [class.cursor-pointer]="item.certificateUrl"
+              (click)="item.certificateUrl && openCertificatePreview(item.certificateUrl, item.certificateTitle || item.company, item.company)"
+              [title]="item.certificateUrl ? 'Click to view certificate' : item.company"
+            >
+              <!-- Status Badge (Top Right) -->
+              <div class="absolute top-2.5 right-2.5 z-10">
+                @if (item.status === 'Currently Ongoing') {
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/15 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300 backdrop-blur-md shadow-2xs">
+                    <span class="relative flex h-1.5 w-1.5">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                    </span>
+                    Currently Ongoing
+                  </span>
+                } @else {
+                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-white/90 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 backdrop-blur-sm shadow-2xs">
+                    <svg class="w-2.5 h-2.5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Completed
+                  </span>
+                }
+              </div>
+
+              <!-- Company Logo Box -->
+              <div
+                class="w-36 h-20 rounded-lg shadow-xs flex items-center justify-center p-2.5 transition-transform duration-300 group-hover:scale-105 overflow-hidden"
+                [class.bg-[#1c222c]]="item.id === 'techwing'"
+                [class.border]="true"
+                [class.border-slate-700/60]="item.id === 'techwing'"
+                [class.bg-white]="item.id !== 'techwing'"
+                [class.border-slate-200/80]="item.id !== 'techwing'"
+              >
+                @if (item.logoUrl) {
+                  <img
+                    [src]="item.logoUrl"
+                    [alt]="item.company"
+                    class="max-w-full max-h-full object-contain pointer-events-none"
+                  />
+                } @else {
+                  <span class="font-bold text-slate-800 text-xs text-center">{{ item.company }}</span>
+                }
+              </div>
+
+              @if (item.certificateUrl) {
+                <div class="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center pointer-events-none">
+                  <span class="px-2.5 py-1 rounded-md bg-white/95 dark:bg-slate-900/95 text-[10px] font-bold text-slate-800 dark:text-white shadow-xs flex items-center gap-1 backdrop-blur-xs">
+                    <span>View Certificate</span>
+                    <svg class="w-3 h-3 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </span>
+                </div>
+              }
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-4 sm:p-5 flex flex-col flex-grow justify-between space-y-2.5">
+              <div class="space-y-1">
+                <span class="text-[11px] font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider block truncate">
+                  {{ item.company }}
+                </span>
+                <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base leading-snug line-clamp-1">
+                  {{ item.role }}
+                </h3>
+              </div>
+
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-3 min-h-[3.25rem]">
+                {{ item.summary }}
+              </p>
+            </div>
+
+          </div>
+        }
+
+        @for (cert of certifications(); track 'dup-cert-' + cert.id) {
+          <div
+            class="flex-shrink-0 w-[300px] sm:w-[325px] rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:-translate-y-1.5 hover:shadow-md transition-all duration-300 flex flex-col justify-between overflow-hidden group"
+          >
+            <!-- Certificate Document Preview Thumbnail -->
+            <div
+              (click)="openModal(cert)"
+              class="h-36 sm:h-40 bg-slate-100 dark:bg-slate-950 p-2.5 flex items-center justify-center relative overflow-hidden border-b border-slate-100 dark:border-slate-800 cursor-pointer"
+              title="Click to zoom certificate"
+            >
+              <div class="relative w-full h-full rounded-lg overflow-hidden shadow-xs border border-slate-200 dark:border-slate-800 bg-white flex items-center justify-center">
+                <img
+                  [src]="cert.previewUrl"
+                  [alt]="cert.title + ' Certificate Preview'"
+                  class="w-full h-full object-contain bg-white transition-transform duration-300 group-hover:scale-105 pointer-events-none"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center pointer-events-none">
+                  <span class="px-2.5 py-1 rounded-md bg-white/95 dark:bg-slate-900/95 text-[10px] font-bold text-slate-800 dark:text-white shadow-xs flex items-center gap-1 backdrop-blur-xs">
+                    <svg class="w-3.5 h-3.5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                    </svg>
+                    <span>Click to Zoom</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-4 sm:p-5 flex flex-col flex-grow justify-between space-y-2.5">
+              <div class="space-y-1">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-[11px] font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider truncate">
+                    {{ cert.issuer }}
+                  </span>
+                  <span class="text-[10px] font-mono text-slate-400 dark:text-slate-500 whitespace-nowrap">
+                    {{ cert.issueDate }}
+                  </span>
+                </div>
+
+                <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base leading-snug line-clamp-1" [title]="cert.title">
+                  {{ cert.title }}
+                </h3>
+              </div>
+
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-3 min-h-[3.25rem]">
+                {{ cert.description }}
+              </p>
+            </div>
+
+          </div>
+        }
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Certificate Preview Modal (Lightbox) -->
+@if (selectedModalCert(); as cert) {
+  <div
+    class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-200"
+    (click)="onBackdropClick($event)"
+  >
+    <div
+      class="relative max-w-4xl w-full bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col max-h-[92vh] animate-in zoom-in-95 duration-200"
+    >
+      <!-- Modal Header -->
+      <div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between gap-4 bg-slate-50/70 dark:bg-slate-850/60">
+        <div class="min-w-0">
+          <span class="text-xs font-mono font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+            {{ cert.issuer }}
+          </span>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white truncate">
+            {{ cert.title }}
+          </h3>
+        </div>
+
+        <button
+          type="button"
+          (click)="closeModal()"
+          class="p-2 rounded-full text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+          aria-label="Close modal"
+        >
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-4 sm:p-6 overflow-y-auto flex-grow flex items-center justify-center bg-slate-100/60 dark:bg-slate-950/60">
+        <div class="relative max-w-full rounded-xl overflow-hidden shadow-xl border border-slate-300/80 dark:border-slate-700 bg-white">
+          <img
+            [src]="cert.previewUrl"
+            [alt]="cert.title + ' Certificate'"
+            class="max-h-[72vh] w-auto object-contain mx-auto"
+          />
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-3.5 border-t border-slate-200 dark:border-slate-800 flex items-center justify-end bg-slate-50/70 dark:bg-slate-850/60">
+        <button
+          type="button"
+          (click)="closeModal()"
+          class="px-5 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-semibold hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors cursor-pointer text-sm"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+}

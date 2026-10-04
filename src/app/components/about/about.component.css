@@ -1,0 +1,15 @@
+/* Smooth timeline node pulse and micro-interactions */
+@keyframes timelineGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.15;
+  }
+}
+
+.timeline-pulse {
+  animation: timelineGlow 2.4s ease-in-out infinite;
+}

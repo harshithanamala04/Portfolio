@@ -1,0 +1,200 @@
+<section id="about" class="py-12 sm:py-16 relative bg-slate-100/40 dark:bg-slate-900/30">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto space-y-2">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+        About <span class="text-gradient">Me</span>
+      </h2>
+      <p class="text-base text-slate-600 dark:text-slate-400">
+        Academic foundation, software development focus, and continuous learning.
+      </p>
+    </div>
+
+    <!-- 2-Column Balanced Modern Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+      
+      <!-- LEFT COLUMN: Profile & Technical Skills Card -->
+      <div
+        class="rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-6 sm:p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+      >
+        <div class="space-y-6">
+          
+          <!-- Block 1: Professional Summary -->
+          <div class="space-y-4">
+            <div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
+                Professional Summary
+              </h3>
+            </div>
+
+            <div class="space-y-3 pt-1">
+              <div class="flex items-start gap-3 group/item transition-transform hover:translate-x-1 duration-200">
+                <div class="mt-0.5 w-5 h-5 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-200/80 dark:border-blue-800/80">
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Passionate about full-stack software development and building scalable, reactive web applications.
+                </p>
+              </div>
+
+              <div class="flex items-start gap-3 group/item transition-transform hover:translate-x-1 duration-200">
+                <div class="mt-0.5 w-5 h-5 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-200/80 dark:border-blue-800/80">
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Strong focus on clean frontend architectures in Angular and robust Python/Django REST backends.
+                </p>
+              </div>
+
+              <div class="flex items-start gap-3 group/item transition-transform hover:translate-x-1 duration-200">
+                <div class="mt-0.5 w-5 h-5 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-200/80 dark:border-blue-800/80">
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Experienced in relational database design, secure API authentication (JWT &amp; OAuth2), and cloud data services.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="border-b border-slate-100 dark:border-slate-800 my-4"></div>
+
+          <!-- Block 2: Categorized Technical Skills -->
+          <div class="space-y-4">
+            <div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
+                Technical Skills
+              </h3>
+            </div>
+
+            <div class="space-y-4 pt-1">
+              @for (category of skillCategories(); track category.title) {
+                <div>
+                  <span class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider block mb-2">
+                    {{ category.title }}
+                  </span>
+                  <div class="flex flex-wrap gap-2">
+                    @for (skill of category.skills; track skill) {
+                      <span
+                        class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700/80 shadow-2xs transition-all duration-200 cursor-default hover:scale-105 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-950/30"
+                      >
+                        {{ skill }}
+                      </span>
+                    }
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Vertical Education Timeline Card -->
+      <div
+        class="rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-6 sm:p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+      >
+        <div class="space-y-6">
+          
+          <!-- Education Header -->
+          <div class="flex items-center space-x-2.5">
+            <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M12 14l9-5-9-5-9 5 9 5z" />
+              <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 14v7" />
+            </svg>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
+              Education
+            </h3>
+          </div>
+
+          <!-- Vertical Timeline with Continuous Line -->
+          <div class="relative pl-6 sm:pl-7 pt-2 pb-2 space-y-8">
+            <!-- Continuous Line -->
+            <div class="absolute left-[11px] top-4 bottom-4 w-0.5 bg-indigo-200 dark:bg-indigo-900/60"></div>
+
+            @for (edu of education(); track edu.id; let isFirst = $first) {
+              <div class="relative flex items-start group/milestone">
+                
+                <!-- Timeline Indicator Dot with Glow Effect -->
+                <div class="absolute -left-[23px] top-1 z-10 flex items-center justify-center">
+                  @if (isFirst) {
+                    <!-- Pulsing Glow Ring on Active Education Milestone (GIET) -->
+                    <span class="absolute w-7 h-7 rounded-full bg-blue-500/30 dark:bg-blue-400/20 animate-ping"></span>
+                  }
+                  <div
+                    class="w-6 h-6 rounded-full border-2 border-indigo-500 bg-white dark:bg-slate-900 flex items-center justify-center transition-transform duration-300 group-hover/milestone:scale-125 shadow-xs"
+                    [class.ring-4]="isFirst"
+                    [class.ring-blue-100]="isFirst"
+                    [class.dark:ring-blue-950/60]="isFirst"
+                  >
+                    <span
+                      class="w-2.5 h-2.5 rounded-full"
+                      [class.bg-blue-600]="isFirst"
+                      [class.dark:bg-blue-400]="isFirst"
+                      [class.bg-indigo-600]="!isFirst"
+                    ></span>
+                  </div>
+                </div>
+
+                <!-- Milestone Content Details -->
+                <div class="pl-4 space-y-1.5">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <h4 class="font-bold text-base sm:text-lg text-slate-900 dark:text-white leading-snug">
+                      {{ edu.degree }}
+                    </h4>
+                    @if (edu.status === 'Final Year Student') {
+                      <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-300/50 dark:border-emerald-800/60">
+                        Final Year Student
+                      </span>
+                    }
+                  </div>
+
+                  <p class="text-sm font-semibold text-blue-600 dark:text-blue-400">
+                    {{ edu.institution }}
+                  </p>
+
+                  <div class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
+                    <svg class="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    <span>{{ edu.period || edu.status }}</span>
+                    @if (edu.status === 'Completed') {
+                      <span class="text-slate-400">&bull;</span>
+                      <span class="text-slate-500 dark:text-slate-400">Completed</span>
+                    }
+                  </div>
+
+                  <!-- Score / Metric Badge -->
+                  <div class="pt-1">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-bold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60 shadow-2xs">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                      {{ edu.scoreLabel }}: {{ edu.score }}
+                    </span>
+                  </div>
+
+                  <!-- Description -->
+                  <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed pt-1">
+                    {{ edu.description }}
+                  </p>
+                </div>
+
+              </div>
+            }
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

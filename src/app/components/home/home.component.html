@@ -1,0 +1,83 @@
+<section id="hero" class="relative min-h-[90vh] flex items-center justify-center pt-24 pb-12 sm:pt-28 sm:pb-16 overflow-hidden">
+  
+  <!-- Subtle Ambient Background Accents -->
+  <div class="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-gradient-to-tr from-primary-500/15 via-teal-500/10 to-transparent rounded-full blur-3xl dark:from-primary-600/20 dark:via-teal-600/10 animate-pulse-slow"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808010_1px,transparent_1px),linear-gradient(to_bottom,#80808010_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)]"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      
+      <!-- Left Content Column -->
+      <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
+        
+        <!-- Status Badge (Top) -->
+        <div class="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-700/60 backdrop-blur-md shadow-sm transition-transform hover:scale-105">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+          </span>
+          <span class="text-xs font-semibold text-emerald-800 dark:text-emerald-300 tracking-wide">
+            Available for full-time roles &amp; internships
+          </span>
+        </div>
+
+        <!-- Greeting Subheading -->
+        <p class="text-base sm:text-lg font-medium text-indigo-600 dark:text-indigo-400 tracking-wide">
+          Hi, I'm <span class="font-bold text-slate-900 dark:text-white wavy-underline">{{ profile().name }}</span> &mdash;
+        </p>
+
+        <!-- Main Dynamic Headline with Typewriter Effect -->
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight min-h-[4rem] sm:min-h-[6rem] flex items-center">
+          <span>
+            {{ currentTypewriterText() }}<span class="typewriter-cursor text-teal-500 font-normal">|</span>
+          </span>
+        </h1>
+
+        <!-- Bio / Summary -->
+        <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+          I design and develop robust web applications with modern frontend frameworks and reliable backend systems. Focused on high-throughput APIs, reactive interfaces, and developer-friendly architectures.
+        </p>
+
+        <!-- Call to Action Buttons -->
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+          <!-- Primary CTA: View Projects -->
+          <a
+            href="#projects"
+            (click)="scrollTo($event, 'projects')"
+            class="px-6 py-3.5 rounded-xl font-semibold text-sm sm:text-base text-white bg-gradient-to-r from-primary-600 via-indigo-600 to-teal-500 hover:from-primary-500 hover:to-teal-400 shadow-md hover:shadow-glow transition-all duration-300 flex items-center space-x-2 group cursor-pointer"
+          >
+            <span>View Projects</span>
+            <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
+          </a>
+
+          <!-- Secondary CTA: Get in Touch -->
+          <a
+            href="#contact"
+            (click)="scrollTo($event, 'contact')"
+            class="px-6 py-3.5 rounded-xl font-semibold text-sm sm:text-base text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 hover:border-primary-500 dark:hover:border-primary-400 hover:bg-slate-50 dark:hover:bg-slate-850 shadow-sm transition-all duration-200 cursor-pointer"
+          >
+            Get in Touch
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Clean & Simple Photo Frame -->
+      <div class="lg:col-span-5 flex items-center justify-center relative">
+        <div class="relative w-full max-w-[320px] sm:max-w-[360px]">
+          <div class="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 transition-all duration-300 hover:shadow-2xl">
+            <img
+              src="/Harshi_Professional_Photo.png"
+              alt="Namala Harshitha - Full Stack Developer"
+              class="w-full h-auto object-cover object-top transition-transform duration-500 hover:scale-[1.01]"
+            />
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>

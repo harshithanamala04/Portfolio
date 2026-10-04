@@ -1,0 +1,24 @@
+/* Blinking vertical cursor animation */
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  font-weight: 300;
+  margin-left: 2px;
+  animation: blink 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Wavy underline decoration */
+.wavy-underline {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #2dd4bf;
+  text-underline-offset: 6px;
+}

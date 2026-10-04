@@ -1,0 +1,30 @@
+<!-- Shark Splash Intro Page -->
+@if (showSplash()) {
+  <app-splash (complete)="onSplashComplete()"></app-splash>
+}
+
+<div class="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0b0f19] text-slate-800 dark:text-slate-100 selection:bg-primary-500 selection:text-white transition-colors duration-300">
+  <!-- Sticky Glassmorphism Navbar -->
+  <app-navbar></app-navbar>
+
+  <!-- Main Content Sections -->
+  <main class="flex-grow">
+    <!-- Home / Hero Section -->
+    <app-home></app-home>
+
+    <!-- Internships & Experience Section -->
+    <app-experience></app-experience>
+
+    <!-- About Me & Skills Section -->
+    <app-about></app-about>
+
+    <!-- Projects Showcase Section -->
+    <app-projects></app-projects>
+
+    <!-- Contact Form & Details Section -->
+    <app-contact></app-contact>
+  </main>
+
+  <!-- Footer -->
+  <app-footer></app-footer>
+</div>
